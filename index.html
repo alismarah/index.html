@@ -3,111 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BKI College | Under Maintenance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>We'll Be Back Soon | BKI</title>
+  <link rel="icon" href="https://bkico.uk/logo.png" />
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to right, #1c1c1c, #2c3e50);
-      color: white;
+      padding: 0;
+      background-color: #3c0a0a; /* لون خلفية غامق مستوحى من الشعار */
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       height: 100vh;
-      text-align: center;
-      overflow: hidden;
     }
 
-    .logo {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #00bcd4;
-      margin-bottom: 10px;
-      animation: slideDown 1s ease forwards;
+    .logo img {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 10px 0;
+      color: #ffffff;
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 18px;
       color: #ccc;
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease forwards;
-    }
-
-    .maintenance-icon {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
+      margin-bottom: 30px;
     }
 
     .countdown {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #00ffc8;
-      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #ffcc00;
     }
 
-    .contact {
-      font-size: 1rem;
-      color: #ddd;
-      margin-top: 10px;
-    }
-
-    .spinner {
-      border: 6px solid #eee;
-      border-top: 6px solid #00bcd4;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      margin: 20px auto;
-      animation: spin 1.2s linear infinite;
+    .contact a {
+      color: #00bfff;
+      text-decoration: none;
     }
 
     .footer {
       position: absolute;
       bottom: 20px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.7; }
-    }
-
-    @keyframes slideDown {
-      0% { transform: translateY(-50px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      width: 100%;
+      font-size: 14px;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <div class="logo">BKI College</div>
-  <div class="maintenance-icon">🔧🚧</div>
+
+  <div class="logo">
+    <img src="https://bkico.uk/logo.png" alt="BKI Logo">
+  </div>
+
+  <h1>BKI College</h1>
   <div class="subtitle">
     Our website is currently undergoing scheduled maintenance.<br>
     We're working hard to launch something amazing!
   </div>
+
   <div class="countdown" id="countdown">Loading countdown...</div>
-  <div class="spinner"></div>
-  <div class="contact">Need help? Contact us at <a href="mailto:contact@bkico.uk" style="color: #00ffc8;">contact@bkico.uk</a></div>
+
+  <div class="contact">
+    Need help? Contact us at 
+    <a href="mailto:contact@bkico.uk">contact@bkico.uk</a>
+  </div>
+
   <div class="footer">© 2025 BKI College – All rights reserved.</div>
 
   <script>
     const now = new Date();
-    const target = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
-    const countdown = document.getElementById('countdown');
+    const target = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000); // بعد 3 أيام
+
+    const countdown = document.getElementById("countdown");
 
     function updateCountdown() {
       const now = new Date();
@@ -123,11 +98,12 @@
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      countdown.innerHTML = `Back in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `Back in ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    setInterval(updateCountdown, 1000);
     updateCountdown();
+    setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
